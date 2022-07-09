@@ -1,0 +1,22 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Karla, Avenir Next, sans-serif;
+    background-color: #eef8f9;
+    color: #9da3a4;
+}
+
+#navbar {
+    width: 100%;
+    height: 50px;
+    background-color: #6b898e;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+#filters {
+    display: flex;
+}
