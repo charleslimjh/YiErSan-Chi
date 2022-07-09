@@ -23,3 +23,7 @@ html, body {
     display: flex;
     
 }
+
+#table-light {
+    width: 100%;
+}
