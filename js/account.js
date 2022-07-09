@@ -5,7 +5,13 @@ import {
   onAuthStateChanged,
   signOut,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-auth.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
+import {
+  getFirestore,
+  collection,
+  query,
+  where,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -46,3 +52,12 @@ signOutLink.addEventListener("click", () => {
       console.log("Error occurred.");
     });
 });
+
+function getInfo(user) {
+  const userEmail = user.email;
+
+  const q = query(collection(db, "users"), where("email", "==", userEmail));
+  getDocs(q).then((querySnapshot) => {
+    console.log(doc.id, doc.data());
+  })
+}
