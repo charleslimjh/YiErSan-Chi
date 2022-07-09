@@ -37,7 +37,7 @@ function registerUser() {
   const email = document.getElementById("registerEmail");
   const password = document.getElementById("registerPass");
 
-  createUserWithEmailAndPassword(auth, email, pass)
+  createUserWithEmailAndPassword(auth, email.value, pass.value)
     .then((userCredential) => {
       // User is signed in
       const user = userCredential.user;
