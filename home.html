@@ -17,14 +17,13 @@
 
     <title>Home</title>
   </head>
-
   <body id="body" style="display: none">
     <!-- Navbar -->
     <div id="navbar" class="row mb-5">
       <!-- Location Dropdown -->
       <div class="col-md-8">
         <button
-          class="btn btn-outline-light dropdown-toggle"
+          class="btn btn-lg btn-outline-light dropdown-toggle border-0"
           type="button"
           data-bs-toggle="dropdown"
           aria-expanded="false"
@@ -47,10 +46,10 @@
         </ul>
       </div>
 
-      <div class="col-md-4 float-end">
+      <div class="col-md-4">
         <button
           type="button"
-          class="btn btn-outline-light float-end"
+          class="btn btn-lg btn-outline-light float-end border-0"
           id="signOutButton"
         >
           Log Out
@@ -58,7 +57,7 @@
 
         <button
           type="button"
-          class="btn btn-outline-light float-end"
+          class="btn btn-lg btn-outline-light float-end border-0"
           data-bs-toggle="modal"
           data-bs-target="#accountSettings"
         >
@@ -66,63 +65,65 @@
         </button>
 
         <a href="https://yiersanchi.tribeplatform.com/mainfoodsharing">
-          <button type="button" class="btn btn-outline-light float-end">
+          <button
+            type="button"
+            class="btn btn-lg btn-outline-light float-end border-0"
+          >
             Forum
           </button>
         </a>
       </div>
     </div>
 
-    <!-- Add data -->
     <div id="addItemBox" class="mb-4">
       <form class="form" id="addItemForm">
-        <div class="mb-3 row">
-          <label for="filter-category" class="col-sm-2 col-form-label"
-            >Category</label
-          >
-          <div class="col-sm-10">
-            <select
-              class="form-select"
-              id="itemCategory"
-              aria-label="Select a Category"
-            >
-              <option value="0"></option>
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-              <option value="3">Category 3</option>
-            </select>
+        <div class="row g-2">
+          <div class="col-md">
+            <div class="form-floating">
+              <select
+                class="form-select"
+                id="itemCategory"
+              >
+                <option selected></option>
+                <option value="1">Category 1</option>
+                <option value="2">Category 2</option>
+                <option value="3">Category 3</option>
+              </select>
+              <label for="itemCategory">Food Category</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="itemName" />
+              <label for="itemName">Name of Item</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInputGrid" />
+              <label for="floatingInputGrid">Quantity</label>
+            </div>
+          </div>
+
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="date" class="form-control" id="itemExpiry" />
+              <label for="itemExpiry">Expiry Date</label>
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-floating">
+              <button type="button" class="btn btn-lg btn-secondary mt-1 ms-3" id="newItemSubmit">
+                Add Item
+              </button>
+            </div>
           </div>
         </div>
-
-        <div class="mb-3 row">
-          <label for="itemName" class="col-sm-2 col-form-label"
-            >Item Name</label
-          >
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="itemName" />
-          </div>
-        </div>
-
-        <div class="mb-3 row">
-          <label for="itemExpiry" class="col-sm-2 col-form-label"
-            >Expiry Date</label
-          >
-          <div class="col-sm-10">
-            <input type="date" class="form-control" id="itemExpiry" />
-          </div>
-        </div>
-
-        <button
-          type="button"
-          id="itemSubmit"
-          class="btn btn-outline-secondary mb-2"
-        >
-          Add Item
-        </button>
       </form>
     </div>
-
-    <br />
 
     <!-- Data Table -->
     <div
