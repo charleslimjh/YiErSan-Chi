@@ -19,17 +19,17 @@
 
     <div id="registration">
         <button id="registration-button" type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#signUpForm">
+            data-bs-target="#register">
             Sign up
         </button>
         <button id="registration-button" type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#loginForm">
+            data-bs-target="#login">
             Log In
         </button>
     </div>
 
     <!-- Registration Form Fields -->
-    <section class="vh-100 modal fade" tabindex="-1" role="dialog" id="signUpForm" aria-labelledby="exampleModalLabel"
+    <section class="vh-100 modal fade" tabindex="-1" role="dialog" id="register" aria-labelledby="registration"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -47,16 +47,16 @@
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
-                                                        <input type="text" id="firstName"
+                                                        <input type="text" id="registerName"
                                                             class="form-control form-control-lg" required="required" />
-                                                        <label class="form-label" for="firstName">Name</label>
+                                                        <label class="form-label" for="registerName">Name</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-4 pb-2">
                                                     <div class="form-outline">
-                                                        <input type="email" id="emailAddress"
+                                                        <input type="email" id="registerEmail"
                                                             class="form-control form-control-lg" required="required" />
-                                                        <label class="form-label" for="emailAddress">Email</label>
+                                                        <label class="form-label" for="registerEmail">Email</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,9 +65,9 @@
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
-                                                        <input type="password" id="password" name="pw"
+                                                        <input type="password" id="registerPassword" name="pw"
                                                             class="form-control form-control-lg" required="required" />
-                                                        <label class="form-label" for="password">Password</label>
+                                                        <label class="form-label" for="registerPassword">Password</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-4">
@@ -87,7 +87,7 @@
 
                                             <p class="text-center text-muted mt-5 mb-0">Already have an account? <a
                                                     href="#!" class="fw-bold text-body" data-bs-toggle="modal"
-                                                    data-bs-target="#loginForm"><u>Log
+                                                    data-bs-target="#login"><u>Log
                                                         in here!</u></a></p>
                                         </form>
                                     </div>
@@ -101,7 +101,7 @@
     </section>
 
     <!-- Login Form Fields -->
-    <section class="vh-100 modal fade" tabindex="-1" role="dialog" id="loginForm" aria-labelledby="exampleModalLabel"
+    <section class="vh-100 modal fade" tabindex="-1" role="dialog" id="login" aria-labelledby="login"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -119,16 +119,16 @@
                                             <div class="row">
                                                 <div class="col-md-6 mb-4">
                                                     <div class="form-outline">
-                                                        <input type="text" id="email"
+                                                        <input type="text" id="loginEmail"
                                                             class="form-control form-control-lg" required="required" />
-                                                        <label class="form-label" for="email">Email</label>
+                                                        <label class="form-label" for="loginEmail">Email</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 mb-4 pb-2">
                                                     <div class="form-outline">
-                                                        <input type="password" id="password" name="pw"
+                                                        <input type="password" id="loginPassword" name="pw"
                                                             class="form-control form-control-lg" required="required" />
-                                                        <label class="form-label" for="password">Password</label>
+                                                        <label class="form-label" for="loginPassword">Password</label>
                                                     </div>
                                                 </div>
 
@@ -139,7 +139,7 @@
 
                                                 <p class="text-center text-muted mt-5 mb-0">New to YiErSan? <a href="#!"
                                                         class="fw-bold text-body" data-bs-toggle="modal"
-                                                        data-bs-target="#signUpForm"><u>Sign up here!</u></a></p>
+                                                        data-bs-target="#register"><u>Sign up here!</u></a></p>
                                             </div>
                                         </form>
                                     </div>
