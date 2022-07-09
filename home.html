@@ -42,23 +42,19 @@
       <button type="button" class="btn btn-outline-light float-end">
         Log Out
       </button>
-      <button type="button" class="btn btn-outline-light float-end">
-        Forum
-      </button>
+      
       <button type="button" class="btn btn-outline-light float-end" data-bs-toggle="modal"
         data-bs-target="#accountSettings">Account Details</button>
 
-      <a href="https://yiersanchi.tribeplatform.com/mainfoodsharing">
+      <a href="forum.html">
         <button type="button" class="btn btn-outline-light float-end">Forum</button>
       </a>
     </div>
   </div>
 
-  <div id="filters-box">
+  <br>
 
-    <div id="filter-items" class="col-md-7">
-      
-    </div>
+  <div id="filters-box">
 
     <div class="mb-3 row">
       <label for="filter-category" class="col-sm-2 col-form-label">Category</label>
@@ -85,8 +81,11 @@
         <input type="date" class="form-control" id="inputPassword">
       </div>
     </div>
+
+    <button type="button" class="btn btn-outline-secondary mb-2">Add Item</button>
   </div>
 
+  <br>
 
   <div id="data-table" class="align-content-center text-center justify-content-center">
     <table class="table table-light">
@@ -97,6 +96,7 @@
         <th>Category</th>
         <th>Expiry Date</th>
         <th>Time Left</th>
+        <th></th>
       </thead>
 
       <tbody>
@@ -107,6 +107,7 @@
           <td class="table-danger">Seafood</td>
           <td class="table-danger">12th July 2022</td>
           <td class="table-danger">2 days</td>
+          <td class="table-danger"><button class="btn btn-light">Remove</button></td>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
@@ -115,6 +116,7 @@
           <td class="table-warning">Vegetables</td>
           <td class="table-warning">17th July 2022</td>
           <td class="table-warning">7 days</td>
+          <td class="table-warning"><button class="btn btn-light">Remove</button></td>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
@@ -123,6 +125,7 @@
           <td class="table-secondary">Snacks and Confectionary</td>
           <td class="table-secondary">11th August 2022</td>
           <td class="table-secondary">1 Month</td>
+          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
@@ -131,6 +134,7 @@
           <td class="table-secondary">Drinks</td>
           <td class="table-secondary">20th September 2022</td>
           <td class="table-secondary">2 Months</td>
+          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
         </tr>
       </tbody>
 
