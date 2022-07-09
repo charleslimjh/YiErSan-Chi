@@ -58,6 +58,8 @@ function getInfo(user) {
 
   const q = query(collection(db, "users"), where("email", "==", userEmail));
   getDocs(q).then((querySnapshot) => {
-    console.log(doc.id, doc.data());
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, doc.data());
+    });
   })
 }
