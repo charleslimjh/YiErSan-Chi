@@ -1,0 +1,37 @@
+html, body {
+    min-height: 100%;
+    margin: 20;
+    padding: 20;
+    font-family: Karla, Avenir Next, sans-serif;
+    background-color: #eef8f9;
+    color: #9da3a4;
+}
+
+#yiersan-header {
+    padding-top: 125px;
+    text-align: center;
+}
+
+#logo {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    height: 250px;
+    padding-bottom: 40px;
+}
+
+#registration {
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 40px;
+}
+
+#registration-button {
+    background-color: #9da3a4;
+    outline-color: black;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
