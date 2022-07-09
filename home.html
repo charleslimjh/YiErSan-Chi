@@ -18,7 +18,7 @@
 <body>
   <div id="navbar" class="row">
     <div class="col-md-8">
-      <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      <button class="btn btn-outline-light dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Location
       </button>
@@ -39,15 +39,15 @@
     </div>
 
     <div class="col-md-4 float-end">
-      <button type="button" class="btn btn-outline-light float-end">
+      <button type="button" class="btn btn-outline-light float-end border-0">
         Log Out
       </button>
       
-      <button type="button" class="btn btn-outline-light float-end" data-bs-toggle="modal"
+      <button type="button" class="btn btn-outline-light float-end border-0" data-bs-toggle="modal"
         data-bs-target="#accountSettings">Account Details</button>
 
       <a href="https://yiersanchi.tribeplatform.com/mainfoodsharing">
-        <button type="button" class="btn btn-outline-light float-end">Forum</button>
+        <button type="button" class="btn btn-outline-light float-end border-0">Forum</button>
       </a>
     </div>
   </div>
@@ -90,16 +90,17 @@
 
   <br>
 
-  <div id="data-table" class="align-content-center text-center justify-content-center">
-    <table class="table table-light">
-      <thead>
+  <div id="data-table">
+    <div class="align-content-center text-center justify-content-center rounded"> 
+    <table class="table table-light table-bordered" >
+      <tr>
         <!--name headers th, non headers td-->
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Category</th>
-        <th>Expiry Date</th>
-        <th>Time Left</th>
-        <th></th>
+        <td>Food</td>
+        <td>Quantity</td>
+        <td>Category</td>
+        <td>Expiry Date</td>
+        <td>Time Left</td>
+        <td></td>
       </thead>
      
       <tbody>
@@ -110,7 +111,7 @@
           <td class="table-danger">Seafood</td>
           <td class="table-danger">12th July 2022</td>
           <td class="table-danger">2 days</td>
-          <td class="table-danger"><button class="btn btn-light">Remove</button></td>
+          <td class="table-danger"><button type="button" class="btn-close" aria-label="Close"></button>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
@@ -119,29 +120,29 @@
           <td class="table-warning">Vegetables</td>
           <td class="table-warning">17th July 2022</td>
           <td class="table-warning">7 days</td>
-          <td class="table-warning"><button class="btn btn-light">Remove</button></td>
+          <td class="table-warning"><button type="button" class="btn-close" aria-label="Close"></button>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
-          <td class="table-secondary">Magnum Mini</td>
-          <td class="table-secondary">10 Boxes</td>
-          <td class="table-secondary">Snacks and Confectionary</td>
-          <td class="table-secondary">11th August 2022</td>
-          <td class="table-secondary">1 Month</td>
-          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
+          <td class="table-light">Magnum Mini</td>
+          <td class="table-light">10 Boxes</td>
+          <td class="table-light">Snacks and Confectionary</td>
+          <td class="table-light">11th August 2022</td>
+          <td class="table-light">1 Month</td>
+          <td class="table-light"><button type="button" class="btn-close" aria-label="Close"></button>
         </tr>
         <tr>
           <!--always starts with a table row, then columns using td-->
-          <td class="table-secondary">Coca Cola</td>
-          <td class="table-secondary">2 Cartons</td>
-          <td class="table-secondary">Drinks</td>
-          <td class="table-secondary">20th September 2022</td>
-          <td class="table-secondary">2 Months</td>
-          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
+          <td class="table-light">Coca Cola</td>
+          <td class="table-light">2 Cartons</td>
+          <td class="table-light">Drinks</td>
+          <td class="table-light">20th September 2022</td>
+          <td class="table-light">2 Months</td>
+          <td class="table-light"><button type="button" class="btn-close" aria-label="Close"></button>
         </tr>
       </tbody>
-
     </table>
+    </div> 
   </div>
 
   <!-- Account Settings -->

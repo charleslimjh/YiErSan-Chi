@@ -30,6 +30,8 @@ html, body {
     width: 80%;
     margin: auto;
     background-color: #f1eef9;
+    font-weight: normal;
+    border-radius: 20px;
 }
 
 
@@ -39,4 +41,7 @@ html, body {
     align-self: center;
     padding-left: 10%;
     padding-right: 10%;
-}
+    border: 0;
+    border-radius: 20%;
+      }
+
