@@ -21,9 +21,14 @@ html, body {
 
 #filters {
     display: flex;
+    width: 80%;
     
 }
 
-#table-light {
-    width: 100%;
+#data-table {
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
