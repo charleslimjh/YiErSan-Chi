@@ -10,7 +10,9 @@ import {
   collection,
   query,
   where,
-  getDocs
+  getDocs,
+  addDoc,
+  deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -27,6 +29,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
+let userId;
 
 // Ensure user is logged in
 onAuthStateChanged(auth, (user) => {
@@ -53,24 +56,94 @@ signOutLink.addEventListener("click", () => {
     });
 });
 
+// get all user information
 function getInfo(user) {
-  const userEmail = user.email;
-
   // get user information
-  const q = query(collection(db, "users"), where("email", "==", userEmail));
+  const name = document.getElementById('userName');
+  const email = document.getElementById('userEmail');
+  const q = query(collection(db, "users"), where("email", "==", user.email));
   getDocs(q).then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      console.log(doc.id, doc.data());
+      sessionStorage.setItem("userId", doc.id);
+      name.value = doc.get("name");
+      email.value = doc.get("email");
+      getLocation();
+      getFood();
     });
-  })
+  });
+}
 
+function getLocation() {
   // get location information
-  const q2 = query(collection(db, "locations"), where("user", "==", userEmail));
-  let counter = 0;
+  const q2 = query(
+    collection(db, "locations"),
+    where("user", "==", sessionStorage.getItem("userId"))
+  );
   getDocs(q2).then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       console.log(doc.id, doc.data());
-      counter++;
     });
+  });
+}
+
+// TODO SELECT KITCHEN PROPERLY
+function getFood() {
+  // get food information for selected location
+  // const location = document.getElementById("selectedLocation");
+  
+  
+  const q3 = query(
+    collection(db, "locations"),
+    where("user", "==", sessionStorage.getItem("userId")),
+    where("name", "==", "My Kitchen 2")
+  );
+
+  getDocs(q3).then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      const foods = doc.get("food");
+      const table = document.getElementById('foodTable');
+
+      for (const food of foods) {
+        var tmp;
+        var time = Math.round((Date.parse(food.expiry) - Date.now())/86400000);
+        if (Date.now() >= Date.parse(food.expiry)) {
+          tmp = "<td class='table-danger'>";
+        } else if (time < 10) {
+          tmp = "<td class='table-warning'>";
+        } else {
+          tmp = "<td class='table-secondary'>";
+        }
+
+        var row = document.createElement("tr");
+        row.innerHTML += (tmp + food.name + "</td>");
+        row.innerHTML += (tmp + food.quantity + "</td>");
+        row.innerHTML += (tmp + food.category + "</td>");
+        row.innerHTML += (tmp + food.expiry + "</td>");
+        row.innerHTML += (tmp + time + " days</td>");
+
+        table.append(row);
+      }
+    })
+  });
+}
+
+// add new location to database
+const location = document.getElementById("newLocationForm");
+location.addEventListener("submit", addLocation);
+function addLocation() {
+  const location = document.getElementById("newLocation");
+  addDoc(collection(db, "locations"), {
+    user: sessionStorage.getItem("userId"),
+    name: location.value,
+    food: [],
+    categories: ["Dairy", "Seafood & Meat", "Vegetables", "Fruits", "Staples"],
   })
+    .then(() => {
+      alert("Location added!");
+      document.location.reload();
+    })
+    .catch((error) => {
+      alert("Error adding location, try again later!");
+      console.log(error);
+    });
 }
