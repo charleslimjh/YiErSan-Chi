@@ -19,6 +19,9 @@
   </head>
 
   <body>
+    <div id="yiersan-header">
+      <h1>YiErSan-Chi</h1>
+    </div>
     <img id="logo" src="media/YiErSan Logo.png" />
 
     <div id="registration">
@@ -48,7 +51,7 @@
       tabindex="-1"
       role="dialog"
       id="register"
-      aria-labelledby="registration"
+      aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
@@ -76,9 +79,7 @@
                             class="form-control form-control-lg"
                             required="required"
                           />
-                          <label class="form-label" for="registerName"
-                            >Name</label
-                          >
+                          <label class="form-label" for="registerName">Name</label>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
@@ -133,7 +134,7 @@
                         class="btn btn-primary btn-lg"
                         type="submit"
                         value="Submit"
-                        id="submitButton"
+                        id="registerSubmit"
                       />
                     </div>
 
@@ -142,6 +143,7 @@
                       <a
                         href="#!"
                         class="fw-bold text-body"
+                        data-bs-dismiss="modal"
                         data-bs-toggle="modal"
                         data-bs-target="#login"
                         ><u>Log in here!</u></a
@@ -162,7 +164,7 @@
       tabindex="-1"
       role="dialog"
       id="login"
-      aria-labelledby="login"
+      aria-labelledby="exampleModalLabel"
       aria-hidden="true"
     >
       <div class="modal-dialog">
@@ -189,9 +191,7 @@
                             class="form-control form-control-lg"
                             required="required"
                           />
-                          <label class="form-label" for="loginEmail"
-                            >Email</label
-                          >
+                          <label class="form-label" for="loginEmail">Email</label>
                         </div>
                       </div>
                       <div class="col-md-6 mb-4 pb-2">
@@ -214,15 +214,16 @@
                           class="btn btn-primary btn-lg"
                           type="submit"
                           value="Submit"
-                          id="submitButton"
+                          id="loginSubmit"
                         />
                       </div>
 
                       <p class="text-center text-muted mt-5 mb-0">
-                        New to YiErSan?
+                        New to YiErSan-Chi?
                         <a
                           href="#!"
                           class="fw-bold text-body"
+                          data-bs-dismiss="modal"
                           data-bs-toggle="modal"
                           data-bs-target="#register"
                           ><u>Sign up here!</u></a
