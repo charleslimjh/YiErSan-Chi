@@ -26,11 +26,12 @@ html, body {
     align-items: center;
     padding-top: 2%;
     padding-bottom: 1%;
-    padding-right: 5%;
+    padding-right: 2%;
     width: 80%;
     margin: auto;
     background-color: #f1eef9;
 }
+
 
 #data-table {
     justify-content: center;
