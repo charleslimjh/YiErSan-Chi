@@ -33,6 +33,73 @@
       <p>Hi! This is where the data will be!</p>
     </div>
 
+    <!-- Account Settings -->
+    <section class="vh-100 modal-fade" tabindex="-1" role="dialog" id="signUpForm" aria-labelledby="exampleModalLabel"
+        aria-hidden="false">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="">
+                        <div class="justify-content-center align-items-center">
+                            <div class="">
+                                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                                    <div class="card-body p-4 p-md-5">
+                                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Settings</h3>
+                                        <form onsubmit="event.preventDefault();" id="registerForm"
+                                            oninput='pw2.setCustomValidity(pw2.value != pw.value ? "Passwords do not match." : "")'>
+
+                                            <!-- Name, Email -->
+                                            <div class="row">
+                                                <div class="col-md-6 mb-4">
+                                                    <div class="form-outline">
+                                                        <input type="text" id="firstName"
+                                                            class="form-control form-control-lg" required="required" disabled/>
+                                                        <label class="form-label" for="firstName">Name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6 mb-4 pb-2">
+                                                    <div class="form-outline">
+                                                        <input type="email" id="emailAddress"
+                                                            class="form-control form-control-lg" required="required" disabled/>
+                                                        <label class="form-label" for="emailAddress">Email</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Locations
+                                            <div class="row">
+                                              <div class="col-md-6 mb-4">
+                                                  <h4> Locations </h4>
+                                                  <table id="locations-table">
+                                                    <tr><td> First location </td></tr>
+                                                    <tr><td> Second location </td></tr>
+                                                  </table>
+                                              </div>
+                                            </div>
+
+                                            <form>
+                                            <div class="row">
+                                              <div class="col-md-9 mb-4">
+                                                <input type="text" id="input-location"
+                                                            class="form-control form-control" required="required"/>
+                                              </div>
+                                              <div class="col-md-1 mb-4">
+                                                <input class="btn btn-primary" type="submit" value="Submit"
+                                                    id="submitButton" />
+                                                    </div>
+                                            </div>
+                                          </form>
+
+                                        </form> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
