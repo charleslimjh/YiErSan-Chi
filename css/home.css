@@ -12,6 +12,7 @@ html, body {
     background-color: #6b898e;
     display: flex;
     flex-direction: row;
+    margin: 0;
     color: white;
 }
 
@@ -41,7 +42,7 @@ html, body {
     align-self: center;
     padding-left: 10%;
     padding-right: 10%;
-    border: 0;
     border-radius: 20%;
+    color: #9da3a4;
       }
 
