@@ -35,22 +35,24 @@ function registerUser() {
   // Get User Info
   const name = document.getElementById("registerName");
   const email = document.getElementById("registerEmail");
-  const password = document.getElementById("registerPass");
+  const password = document.getElementById("registerPassword");
 
-  createUserWithEmailAndPassword(auth, email.value, pass.value)
+  console.log(name, email, password);
+
+  createUserWithEmailAndPassword(auth, email.value, password.value)
     .then((userCredential) => {
       // User is signed in
       const user = userCredential.user;
 
       // Create user in Firestore
       addDoc(collection(db, "users"), {
-        name: name,
-        email: email,
+        name: name.value,
+        email: email.value,
       })
         .then(() => {
           // Login user, redirect to main page
           alert("User created successfully! Redirecting to main page...");
-          window.location.replace("main.html");
+          window.location.replace("home.html");
         })
         .catch((error) => {
           alert("Server error, try again!");
@@ -74,7 +76,8 @@ function login() {
   signInWithEmailAndPassword(auth, email.value, pass.value)
     .then((userCredential) => {
       const user = userCredential.user;
-      window.location.replace("main.html");
+      alert("Login successful, redirecting to main page...");
+      window.location.replace("home.html");
     })
     .catch((error) => {
       alert("Invalid account credentials! Try again.");
