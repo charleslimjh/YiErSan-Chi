@@ -12,6 +12,7 @@ import {
   where,
   getDocs,
   addDoc,
+  orderBy,
   deleteDoc,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 
@@ -73,8 +74,8 @@ function getInfo(user) {
   });
 }
 
+// get all location information
 function getLocation() {
-  // get location information
   const q2 = query(
     collection(db, "locations"),
     where("user", "==", sessionStorage.getItem("userId"))
@@ -91,16 +92,15 @@ function getFood() {
   // get food information for selected location
   // const location = document.getElementById("selectedLocation");
   
-  
   const q3 = query(
     collection(db, "locations"),
     where("user", "==", sessionStorage.getItem("userId")),
     where("name", "==", "My Kitchen 2")
   );
 
-  getDocs(q3).then((querySnapshot) => {
+  getDocs(q3).then((querySnapshot) => { 
     querySnapshot.forEach((doc) => {
-      const foods = doc.get("food");
+      var foods = doc.get("food").sort((a,b) => Date.parse(a.expiry) - Date.parse(b.expiry));
       const table = document.getElementById('foodTable');
 
       for (const food of foods) {
