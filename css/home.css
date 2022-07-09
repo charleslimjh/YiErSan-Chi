@@ -16,14 +16,25 @@ html, body {
 }
 
 #new-location-form {
-    padding: 2px;
+    padding: 3px;
 }
 
-#filters {
-    display: flex;
-    
+#filters-box {
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    padding-top: 2%;
+    padding-bottom: 1%;
+    width: 80%;
+    margin: auto;
+    background-color: #f1eef9;
 }
 
-#table-light {
-    width: 100%;
+#data-table {
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+    padding-left: 10%;
+    padding-right: 10%;
 }
