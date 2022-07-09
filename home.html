@@ -1,225 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/home.css" />
+    <script type="module" src="js/home.js"></script>
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="css/home.css" />
-  <script type="module" src="js/home.js"></script>
+    <title>Home</title>
+  </head>
 
-  <title>Home</title>
-</head>
-
-<body>
-  <div id="navbar" class="row">
-    <div class="col-md-8">
-      <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Location
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Location 1</a></li>
-        <li><a class="dropdown-item" href="#">Location 2</a></li>
-        <li><a class="dropdown-item" href="#">Location 3</a></li>
-        <li>
-          <hr class="dropdown-divider" />
-        </li>
-        <li>
-          <form id="new-location-form">
-            <label for="name">Add New Location:</label>
-            <input type="text" name="name" />
-          </form>
-        </li>
-      </ul>
-    </div>
-
-    <div class="col-md-4 float-end">
-      <button type="button" class="btn btn-outline-light float-end">
-        Log Out
-      </button>
-      
-      <button type="button" class="btn btn-outline-light float-end" data-bs-toggle="modal"
-        data-bs-target="#accountSettings">Account Details</button>
-
-      <a href="forum.html">
-        <button type="button" class="btn btn-outline-light float-end">Forum</button>
-      </a>
-    </div>
-  </div>
-
-  <br>
-
-  <div id="filters-box">
-
-    <div class="mb-3 row">
-      <label for="filter-category" class="col-sm-2 col-form-label">Category</label>
-      <div class="col-sm-10">
-        <select class="form-select" id="filter-category" aria-label="Select a Category">
-          <option value="0"></option>
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-          <option value="3">Category 3</option>
-        </select>
+  <body id="body" style="display: none">
+    <!-- Navbar -->
+    <div id="navbar" class="row mb-5">
+      <!-- Location Dropdown -->
+      <div class="col-md-8">
+        <button
+          class="btn btn-outline-light dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Location
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Location 1</a></li>
+          <li><a class="dropdown-item" href="#">Location 2</a></li>
+          <li><a class="dropdown-item" href="#">Location 3</a></li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li>
+            <form id="newLocationForm" onsubmit="event.preventDefault();">
+              <label for="newLocation">Add New Location:</label>
+              <input type="text" name="newLocation" id="newLocation" />
+            </form>
+          </li>
+        </ul>
       </div>
-    </div>
-    
-    <div class="mb-3 row">
-      <label for="filter-item" class="col-sm-2 col-form-label">Item Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="filter-item">
-      </div>
-    </div>
 
-    <div class="mb-3 row">
-      <label for="filter-date" class="col-sm-2 col-form-label">Date</label>
-      <div class="col-sm-10">
-        <input type="date" class="form-control" id="inputPassword">
+      <div class="col-md-4 float-end">
+        <button
+          type="button"
+          class="btn btn-outline-light float-end"
+          id="signOutButton"
+        >
+          Log Out
+        </button>
+
+        <button
+          type="button"
+          class="btn btn-outline-light float-end"
+          data-bs-toggle="modal"
+          data-bs-target="#accountSettings"
+        >
+          Account Details
+        </button>
+
+        <a href="https://yiersanchi.tribeplatform.com/mainfoodsharing">
+          <button type="button" class="btn btn-outline-light float-end">
+            Forum
+          </button>
+        </a>
       </div>
     </div>
 
-    <button type="button" class="btn btn-outline-secondary mb-2">Add Item</button>
-  </div>
+    <!-- Add data -->
+    <div id="addItemBox" class="mb-4">
+      <form class="form" id="addItemForm">
+        <div class="mb-3 row">
+          <label for="filter-category" class="col-sm-2 col-form-label"
+            >Category</label
+          >
+          <div class="col-sm-10">
+            <select
+              class="form-select"
+              id="itemCategory"
+              aria-label="Select a Category"
+            >
+              <option value="0"></option>
+              <option value="1">Category 1</option>
+              <option value="2">Category 2</option>
+              <option value="3">Category 3</option>
+            </select>
+          </div>
+        </div>
 
-  <br>
+        <div class="mb-3 row">
+          <label for="itemName" class="col-sm-2 col-form-label"
+            >Item Name</label
+          >
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="itemName" />
+          </div>
+        </div>
 
-  <div id="data-table" class="align-content-center text-center justify-content-center">
-    <table class="table table-light">
-      <thead>
-        <!--name headers th, non headers td-->
-        <th>Food</th>
-        <th>Quantity</th>
-        <th>Category</th>
-        <th>Expiry Date</th>
-        <th>Time Left</th>
-        <th></th>
-      </thead>
+        <div class="mb-3 row">
+          <label for="itemExpiry" class="col-sm-2 col-form-label"
+            >Expiry Date</label
+          >
+          <div class="col-sm-10">
+            <input type="date" class="form-control" id="itemExpiry" />
+          </div>
+        </div>
 
-      <tbody>
-        <tr>
-          <!--always starts with a table row, then columns using td-->
-          <td class="table-danger">Barramundi</td>
-          <td class="table-danger">300g</td>
-          <td class="table-danger">Seafood</td>
-          <td class="table-danger">12th July 2022</td>
-          <td class="table-danger">2 days</td>
-          <td class="table-danger"><button class="btn btn-light">Remove</button></td>
-        </tr>
-        <tr>
-          <!--always starts with a table row, then columns using td-->
-          <td class="table-warning">Cauliflower</td>
-          <td class="table-warning">200g</td>
-          <td class="table-warning">Vegetables</td>
-          <td class="table-warning">17th July 2022</td>
-          <td class="table-warning">7 days</td>
-          <td class="table-warning"><button class="btn btn-light">Remove</button></td>
-        </tr>
-        <tr>
-          <!--always starts with a table row, then columns using td-->
-          <td class="table-secondary">Magnum Mini</td>
-          <td class="table-secondary">10 Boxes</td>
-          <td class="table-secondary">Snacks and Confectionary</td>
-          <td class="table-secondary">11th August 2022</td>
-          <td class="table-secondary">1 Month</td>
-          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
-        </tr>
-        <tr>
-          <!--always starts with a table row, then columns using td-->
-          <td class="table-secondary">Coca Cola</td>
-          <td class="table-secondary">2 Cartons</td>
-          <td class="table-secondary">Drinks</td>
-          <td class="table-secondary">20th September 2022</td>
-          <td class="table-secondary">2 Months</td>
-          <td class="table-secondary"><button class="btn btn-light">Remove</button></td>
-        </tr>
-      </tbody>
+        <button
+          type="button"
+          id="itemSubmit"
+          class="btn btn-outline-secondary mb-2"
+        >
+          Add Item
+        </button>
+      </form>
+    </div>
 
-    </table>
-  </div>
+    <br />
 
-  <!-- Account Settings -->
-  <section class="vh-100 modal fade" tabindex="-1" role="dialog" id="accountSettings"
-    aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body">
-          <div class="">
+    <!-- Data Table -->
+    <div
+      id="data-table"
+      class="align-content-center text-center justify-content-center"
+    >
+      <table class="table table-light">
+        <thead>
+          <!--name headers th, non headers td-->
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Category</th>
+          <th>Expiry Date</th>
+          <th>Time Left</th>
+          <th></th>
+        </thead>
+        <tbody id="foodTable"></tbody>
+      </table>
+    </div>
+
+    <!-- Account Settings -->
+    <section
+      class="vh-100 modal fade"
+      tabindex="-1"
+      role="dialog"
+      id="accountSettings"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
             <div class="justify-content-center align-items-center">
-              <div class="">
-                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                  <div class="card-body p-4 p-md-5">
-                    <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Settings</h3>
-                    <form onsubmit="event.preventDefault();" id="registerForm"
-                      oninput='pw2.setCustomValidity(pw2.value != pw.value ? "Passwords do not match." : "")'>
-
-                      <!-- Name, Email -->
-                      <div class="row">
-                        <div class="col-md-6 mb-4">
-                          <div class="form-outline">
-                            <input type="text" id="firstName" class="form-control form-control-lg" required="required"
-                              disabled />
-                            <label class="form-label" for="firstName">Name</label>
-                          </div>
-                        </div>
-                        <div class="col-md-6 mb-4 pb-2">
-                          <div class="form-outline">
-                            <input type="email" id="emailAddress" class="form-control form-control-lg"
-                              required="required" disabled />
-                            <label class="form-label" for="emailAddress">Email</label>
-                          </div>
+              <div
+                class="card shadow-2-strong card-registration"
+                style="border-radius: 15px"
+              >
+                <div class="card-body p-4 p-md-5">
+                  <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Account Settings</h3>
+                  <form onsubmit="event.preventDefault();" id="registerForm">
+                    <!-- Name, Email -->
+                    <div class="row">
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <input
+                            type="text"
+                            id="userName"
+                            class="form-control form-control-lg"
+                            required="required"
+                            disabled
+                          />
+                          <label class="form-label" for="userName">Name</label>
                         </div>
                       </div>
 
-                      <!-- Locations
-                                            <div class="row">
-                                              <div class="col-md-6 mb-4">
-                                                  <h4> Locations </h4>
-                                                  <table id="locations-table">
-                                                    <tr><td> First location </td></tr>
-                                                    <tr><td> Second location </td></tr>
-                                                  </table>
-                                              </div>
-                                            </div>
-
-                                            <form>
-                                            <div class="row">
-                                              <div class="col-md-9 mb-4">
-                                                <input type="text" id="input-location"
-                                                            class="form-control form-control" required="required"/>
-                                              </div>
-                                              <div class="col-md-1 mb-4">
-                                                <input class="btn btn-primary" type="submit" value="Submit"
-                                                    id="submitButton" />
-                                                    </div>
-                                            </div>
-                                          </form>
-
-                                        </form> -->
-                  </div>
+                      <div class="col-md-6 mb-4">
+                        <div class="form-outline">
+                          <input
+                            type="email"
+                            id="userEmail"
+                            class="form-control form-control-lg"
+                            required="required"
+                            disabled
+                          />
+                          <label class="form-label" for="userEmail"
+                            >Email</label
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-  </section>
+    </section>
 
-  <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Optional JavaScript; choose one of the two! -->
 
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
-  <!-- Option 2: Separate Popper and Bootstrap JS -->
-  <!--
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
-</body>
-
+  </body>
 </html>

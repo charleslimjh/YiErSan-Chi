@@ -120,6 +120,7 @@ function getFood() {
         row.innerHTML += (tmp + food.category + "</td>");
         row.innerHTML += (tmp + food.expiry + "</td>");
         row.innerHTML += (tmp + time + " days</td>");
+        row.innerHTML += (tmp + '<button class="btn btn-light ">Remove</button></td>');
 
         table.append(row);
       }
