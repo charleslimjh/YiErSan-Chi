@@ -18,7 +18,7 @@
 <body>
   <div id="navbar" class="row">
     <div class="col-md-8">
-      <button class="btn btn-outline-light dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
+      <button class="btn btn-lg btn-outline-light dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
         aria-expanded="false">
         Location
       </button>
@@ -38,16 +38,16 @@
       </ul>
     </div>
 
-    <div class="col-md-4 float-end">
-      <button type="button" class="btn btn-outline-light float-end border-0">
+    <div class="col-md-4">
+      <button type="button" class="btn btn-lg btn-outline-light float-end border-0">
         Log Out
       </button>
       
-      <button type="button" class="btn btn-outline-light float-end border-0" data-bs-toggle="modal"
+      <button type="button" class="btn btn-lg btn-outline-light float-end border-0" data-bs-toggle="modal"
         data-bs-target="#accountSettings">Account Details</button>
 
       <a href="https://yiersanchi.tribeplatform.com/mainfoodsharing">
-        <button type="button" class="btn btn-outline-light float-end border-0">Forum</button>
+        <button type="button" class="btn btn-lg btn-outline-light float-end border-0">Forum</button>
       </a>
     </div>
   </div>
@@ -56,42 +56,56 @@
 
   <div id="filters-box">
 
-    <div class="mb-3 row">
-      <label for="filter-category" class="col-sm-2 col-form-label">Category</label>
-      <div class="col-sm-10">
-        <select class="form-select" id="filter-category" aria-label="Select a Category">
-          <option value="0"></option>
-          <option value="1">Category 1</option>
-          <option value="2">Category 2</option>
-          <option value="3">Category 3</option>
-        </select>
+    <div class="row g-2">
+      <div class="col-md">
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+            <option selected></option>
+            <option value="1">Category 1</option>
+            <option value="2">Category 2</option>
+            <option value="3">Category 3</option>
+          </select>
+          <label for="floatingSelectGrid">Food Category</label>
+        </div>
       </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGrid">
+          <label for="floatingInputGrid">Name of Item</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGrid">
+          <label for="floatingInputGrid">Quantity</label>
+        </div>
+      </div>
+
+      <div class="col-md">
+        <div class="form-floating">
+          <input type="date" class="form-control" id="floatingInputGrid">
+          <label for="filter-date">Expiry Date</label>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-floating">
+          <button type="button" class="btn btn-lg btn-secondary mt-1 ms-3">Add Item</button>
+        </div>
+       </div> 
+
     </div>
+
     
-    <div class="mb-3 row">
-      <label for="filter-item" class="col-sm-2 col-form-label">Item Name</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="filter-item">
-      </div>
-    </div>
-
-    <div class="mb-3 row">
-      <label for="filter-date" class="col-sm-2 col-form-label">Date</label>
-      <div class="col-sm-10">
-        <input type="date" class="form-control" id="inputPassword">
-      </div>
-
-      </div>
-        <button type="button" class="btn btn-outline-secondary mb-2">Add Item</button>
-      </div>
-
   </div>
     
 
   <br>
 
   <div id="data-table">
-    <div class="align-content-center text-center justify-content-center rounded" color="#9da3a4"> 
+    <div class="align-content-center text-center justify-content-center rounded"> 
     <table class="table table-light table-bordered" >
       <tr>
         <!--name headers th, non headers td-->
