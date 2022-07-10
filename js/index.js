@@ -10,6 +10,9 @@ import {
   addDoc,
   collection,
   doc,
+  getDocs,
+  query,
+  where,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -50,9 +53,31 @@ function registerUser() {
         email: email.value,
       })
         .then(() => {
-          // Login user, redirect to main page
-          alert("User created successfully! Redirecting to main page...");
-          window.location.replace("home.html");
+          const q = query(
+            collection(db, "users"),
+            where("email", "==", user.email)
+          );
+          getDocs(q).then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+              // Login user, redirect to main page
+              addDoc(collection(db, "locations"), {
+                name: "Default",
+                user: doc.id,
+                food: [],
+                categories: [
+                  "Dairy",
+                  "Seafood & Meat",
+                  "Vegetables",
+                  "Fruits",
+                  "Staples",
+                  "Others",
+                ],
+              }).then(() => {
+                alert("User created, redirecting to home page...");
+                window.location.replace("home.html");
+              });
+            });
+          });
         })
         .catch((error) => {
           alert("Server error, try again!");

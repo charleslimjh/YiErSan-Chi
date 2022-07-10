@@ -14,7 +14,7 @@ import {
   getDocs,
   addDoc,
   orderBy,
-  setDoc
+  setDoc,
 } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-firestore.js";
 
 // Your web app's Firebase configuration
@@ -76,7 +76,7 @@ function getInfo(user) {
 }
 
 // get all location information
-function getLocation() {
+async function getLocation() {
   const locations = document.getElementById("locationSelect");
   const q2 = query(
     collection(db, "locations"),
@@ -85,44 +85,50 @@ function getLocation() {
   );
   getDocs(q2).then((querySnapshot) => {
     querySnapshot.forEach((doc) => {
-      if (sessionStorage.getItem("location") == null || sessionStorage.getItem("location") == undefined) {
+      if (
+        sessionStorage.getItem("location") == null ||
+        sessionStorage.getItem("location") == undefined
+      ) {
         sessionStorage.setItem("location", doc.get("name"));
         locations.innerHTML +=
-        "<option selected class='locationOption' value='" +
-        doc.get("name") +
-        "'>" +
-        doc.get("name") +
-        "</option>";
-      } else if (sessionStorage.getItem('location') == doc.get("name")) {
+          "<option selected class='locationOption' value='" +
+          doc.get("name") +
+          "'>" +
+          doc.get("name") +
+          "</option>";
+      } else if (sessionStorage.getItem("location") == doc.get("name")) {
         locations.innerHTML +=
-        "<option selected class='locationOption' value='" +
-        doc.get("name") +
-        "'>" +
-        doc.get("name") +
-        "</option>";
+          "<option selected class='locationOption' value='" +
+          doc.get("name") +
+          "'>" +
+          doc.get("name") +
+          "</option>";
       } else {
         locations.innerHTML +=
-        "<option class='locationOption' value='" +
-        doc.get("name") +
-        "'>" +
-        doc.get("name") +
-        "</option>";
+          "<option class='locationOption' value='" +
+          doc.get("name") +
+          "'>" +
+          doc.get("name") +
+          "</option>";
       }
     });
   });
 }
 
 // event listeners for change in locations
-const locationSelect = document.getElementById('locationSelect');
-locationSelect.addEventListener('change', function() {
-  sessionStorage.setItem('location', locationSelect.options[locationSelect.selectedIndex].value);
+const locationSelect = document.getElementById("locationSelect");
+locationSelect.addEventListener("change", function () {
+  sessionStorage.setItem(
+    "location",
+    locationSelect.options[locationSelect.selectedIndex].value
+  );
   document.location.reload();
 });
 
 // get food information for selected location
 // i.e. categories, food items
-function getFood() {
-  const itemCategory = document.getElementById('itemCategory');
+async function getFood() {
+  const itemCategory = document.getElementById("itemCategory");
 
   const q3 = query(
     collection(db, "locations"),
@@ -132,21 +138,22 @@ function getFood() {
 
   getDocs(q3).then((querySnapshot) => {
     querySnapshot.forEach((doc1) => {
-
       // populate category dropdown
-      var categories = doc1.get('categories');
+      var categories = doc1.get("categories");
       for (const category of categories) {
-        itemCategory.innerHTML += 
-        "<option class='itemCategoryOption' value='" +
-        category +
-        "'>" +
-        category +
-        "</option>";
+        itemCategory.innerHTML +=
+          "<option class='itemCategoryOption' value='" +
+          category +
+          "'>" +
+          category +
+          "</option>";
       }
 
       // populate food table
-      var foods = doc1.get("food").sort((a, b) => Date.parse(a.expiry) - Date.parse(b.expiry));
-      sessionStorage.setItem('foods', JSON.stringify(foods));
+      var foods = doc1
+        .get("food")
+        .sort((a, b) => Date.parse(a.expiry) - Date.parse(b.expiry));
+      sessionStorage.setItem("foods", JSON.stringify(foods));
       const table = document.getElementById("foodTable");
       for (const food of foods) {
         var tmp;
@@ -177,20 +184,24 @@ function getFood() {
       }
 
       // event listeners for removing item
-      const deleteButtons = document.querySelectorAll('.foodButton');
+      const deleteButtons = document.querySelectorAll(".foodButton");
       deleteButtons.forEach((button) => {
-        button.addEventListener('click', function(event) {
-          var tmp = JSON.parse(sessionStorage.getItem('foods'));
+        button.addEventListener("click", function (event) {
+          var tmp = JSON.parse(sessionStorage.getItem("foods"));
           deleteFromArray(tmp, event.currentTarget.value);
           getDocs(q3).then((querySnapshot) => {
             querySnapshot.forEach((res) => {
-              setDoc(doc(db, "locations", res.id), {food: tmp}, {merge: true}).then(() => {
+              setDoc(
+                doc(db, "locations", res.id),
+                { food: tmp },
+                { merge: true }
+              ).then(() => {
                 window.location.reload();
               });
-            })
+            });
           });
-        })
-      })
+        });
+      });
     });
   });
 }
@@ -204,7 +215,14 @@ function addLocation() {
     user: sessionStorage.getItem("userId"),
     name: location.value,
     food: [],
-    categories: ["Dairy", "Seafood & Meat", "Vegetables", "Fruits", "Staples", "Others"],
+    categories: [
+      "Dairy",
+      "Seafood & Meat",
+      "Vegetables",
+      "Fruits",
+      "Staples",
+      "Others",
+    ],
   })
     .then(() => {
       alert("Location added!");
@@ -217,22 +235,22 @@ function addLocation() {
 }
 
 // add new food item
-const addItem = document.getElementById('addItemForm');
-addItem.addEventListener('submit', addItemHandler);
+const addItem = document.getElementById("addItemForm");
+addItem.addEventListener("submit", addItemHandler);
 function addItemHandler() {
-  const category = document.getElementById('itemCategory');
-  const name = document.getElementById('itemName');
-  const quantity = document.getElementById('itemQuantity');
-  const expiry = document.getElementById('itemExpiry');
+  const category = document.getElementById("itemCategory");
+  const name = document.getElementById("itemName");
+  const quantity = document.getElementById("itemQuantity");
+  const expiry = document.getElementById("itemExpiry");
 
-  let tmp = JSON.parse(sessionStorage.getItem('foods'));
-  console.log(tmp, typeof(tmp));
+  let tmp = JSON.parse(sessionStorage.getItem("foods"));
+  console.log(tmp, typeof tmp);
   tmp.push({
     name: name.value,
     category: category.value,
     quantity: quantity.value,
-    expiry: expiry.value
-  })
+    expiry: expiry.value,
+  });
 
   const q3 = query(
     collection(db, "locations"),
@@ -242,7 +260,11 @@ function addItemHandler() {
 
   getDocs(q3).then((querySnapshot) => {
     querySnapshot.forEach((doc1) => {
-      setDoc(doc(db, "locations", doc1.id), {food: tmp}, {merge: true}).then(() => {
+      setDoc(
+        doc(db, "locations", doc1.id),
+        { food: tmp },
+        { merge: true }
+      ).then(() => {
         window.location.reload();
       });
     });
