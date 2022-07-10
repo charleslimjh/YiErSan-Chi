@@ -96,6 +96,7 @@ async function getLocation() {
           "'>" +
           doc.get("name") +
           "</option>";
+          window.location.reload();
       } else if (sessionStorage.getItem("location") == doc.get("name")) {
         locations.innerHTML +=
           "<option selected class='locationOption' value='" +
