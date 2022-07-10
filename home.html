@@ -28,15 +28,15 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Location
+          Location Manager
         </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Location 1</a></li>
-          <li><a class="dropdown-item" href="#">Location 2</a></li>
-          <li><a class="dropdown-item" href="#">Location 3</a></li>
-          <li>
-            <hr class="dropdown-divider" />
-          </li>
+        <ul class="dropdown-menu p-2">
+          <form>
+            <label for="selectLocation">Select Location:</label>
+            <select class="form-select" id="locationSelect">
+            </select>
+          </form>
+          <hr class="dropdown-divider" />
           <li>
             <form id="newLocationForm" onsubmit="event.preventDefault();">
               <label for="newLocation">Add New Location:</label>
@@ -80,14 +80,8 @@
         <div class="row g-2">
           <div class="col-md">
             <div class="form-floating">
-              <select
-                class="form-select"
-                id="itemCategory"
-              >
-                <option selected></option>
-                <option value="1">Category 1</option>
-                <option value="2">Category 2</option>
-                <option value="3">Category 3</option>
+              <select class="form-select" id="itemCategory" required>
+                <option selected disabled></option>
               </select>
               <label for="itemCategory">Food Category</label>
             </div>
@@ -95,28 +89,32 @@
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="text" class="form-control" id="itemName" />
+              <input type="text" class="form-control" id="itemName" required />
               <label for="itemName">Name of Item</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInputGrid" />
-              <label for="floatingInputGrid">Quantity</label>
+              <input type="text" class="form-control" id="itemQuantity" required/>
+              <label for="itemQuantity">Quantity</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="date" class="form-control" id="itemExpiry" />
+              <input type="date" class="form-control" id="itemExpiry" required />
               <label for="itemExpiry">Expiry Date</label>
             </div>
           </div>
 
           <div class="col-md-2">
             <div class="form-floating">
-              <button type="button" class="btn btn-lg btn-secondary mt-1 ms-3" id="newItemSubmit">
+              <button
+                type="submit"
+                class="btn btn-lg btn-secondary mt-1 ms-3"
+                id="newItemSubmit"
+              >
                 Add Item
               </button>
             </div>
@@ -129,8 +127,9 @@
     <div
       id="data-table"
       class="align-content-center text-center justify-content-center"
+      color="#9da3a4"
     >
-      <table class="table table-light">
+      <table class="table table-light table-bordered">
         <thead>
           <!--name headers th, non headers td-->
           <th>Food</th>
