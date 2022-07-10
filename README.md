@@ -1,7 +1,7 @@
 # YiErSan-Chi!
 For LifeHack '22, done by Charles, Lynnette and Megan
 
-YiErSan-Chi! is a inventory-tracking x Marketplace web application targeted at alleviating the food wastage issue in Singapore. Users are able to keep track of the expiry dates of food items in their households/businesses and manage their inventory accordingly. We also implemented a "marketplace" through a web forum, which serves as a platform for users to share and gift away excess food items that users may have otherwise discarded into the trash.
+YiErSan-Chi! is a inventory-tracking x Marketplace web application targeted at alleviating the food wastage issue in Singapore. Users are able to keep track of the expiry dates of food items in their households/businesses and manage their inventory accordingly. We also implemented a "marketplace" through a web forum, which serves as a platform for users to share and gift away excess food items that they may have otherwise discarded into the trash.
 
 Our web application is hosted on Netlify [here](https://yiersan-chi.netlify.app/) for testing!.
 
