@@ -27,7 +27,7 @@ html, body {
     padding-bottom: 40px;
 }
 
-#registration-button {
+#registration-button #login-button {
     background-color: #9da3a4;
     outline-color: black;
     width: 100px;
