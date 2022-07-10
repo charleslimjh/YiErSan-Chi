@@ -33,8 +33,7 @@
         <ul class="dropdown-menu p-2">
           <form>
             <label for="selectLocation">Select Location:</label>
-            <select class="form-select" id="locationSelect">
-            </select>
+            <select class="form-select" id="locationSelect"></select>
           </form>
           <hr class="dropdown-divider" />
           <li>
@@ -96,14 +95,24 @@
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="text" class="form-control" id="itemQuantity" required/>
+              <input
+                type="text"
+                class="form-control"
+                id="itemQuantity"
+                required
+              />
               <label for="itemQuantity">Quantity</label>
             </div>
           </div>
 
           <div class="col-md">
             <div class="form-floating">
-              <input type="date" class="form-control" id="itemExpiry" required />
+              <input
+                type="date"
+                class="form-control"
+                id="itemExpiry"
+                required
+              />
               <label for="itemExpiry">Expiry Date</label>
             </div>
           </div>
@@ -165,7 +174,7 @@
                   <form onsubmit="event.preventDefault();" id="registerForm">
                     <!-- Name, Email -->
                     <div class="row">
-                      <div class="col-md-6 mb-4">
+                      <div class="col-12">
                         <div class="form-outline">
                           <input
                             type="text"
@@ -177,8 +186,10 @@
                           <label class="form-label" for="userName">Name</label>
                         </div>
                       </div>
+                    </div>
 
-                      <div class="col-md-6 mb-4">
+                    <div class="row">
+                      <div class="col-12">
                         <div class="form-outline">
                           <input
                             type="email"
